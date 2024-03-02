@@ -19,7 +19,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"Nombre\":\"jhocce\",\r\n    \"direccion\":\"www.google.com\",\r\n    \"paquetes\": \"30\"\r\n}",
+					"raw": "{\r\n    \"Nombre\":\"google\",\r\n    \"direccion\":\"www.google.com\",\r\n    \"paquetes\": \"10\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -43,7 +43,8 @@
 							"disabled": true
 						}
 					]
-				}
+				},
+				"description": "Este punto final realiza una solicitud HTTP POST para crear un nuevo recurso \"equipo\". La solicitud debe incluir una carga útil JSON en el tipo de cuerpo de la solicitud sin formato, con claves para \"Nombre\", \"direccion\" y \"paquetes\".\n\n#####   \nCuerpo de solicitud\n\n- Nombre (cadena): El nombre del equipo.\n    \n- direccion (cadena): La dirección del equipo.\n    \n- paquetes (cadena): El número de paquetes asociados con el equipo.\n    \n\nLa respuesta a la solicitud tendrá un código de estado de 200 y un tipo de contenido de aplicación/json. El cuerpo de la respuesta contendrá un objeto JSON con claves para \"status\", \"operacion\", \"entidad\", \"mensaje_user\", \"mensaje_server\" y \"json\". La clave \"json\" contendrá una matriz con detalles del equipo recién creado, incluida su información \"pk_publica\", \"Nombre\", \"direccion\", \"paquetes\" y \"test\".\n\n######   \nCuerpo de respuesta\n\n- estado (cadena): el estado de la operación.\n    \n- operacion (cadena): El tipo de operación realizada.\n    \n- entidad (cadena): La entidad involucrada en la operación.\n    \n- mensaje_user (matriz): Mensajes de cara al usuario relacionados con la operación.\n    \n- mensaje_server (array): Mensajes del lado del servidor relacionados con la operación.\n    \n- json (array): Matriz que contiene detalles del equipo recién creado, incluida su información \"pk_publica\", \"Nombre\", \"direccion\", \"paquetes\" y \"test\"."
 			},
 			"response": [
 				{
@@ -59,7 +60,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"Nombre\":\"prueba1\",\r\n    \"direccion\":\"www.google.com\",\r\n    \"paquetes\": \"5\"\r\n}",
+							"raw": "{\r\n    \"Nombre\":\"google\",\r\n    \"direccion\":\"www.google.com\",\r\n    \"paquetes\": \"10\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -67,7 +68,7 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/api/equipo/?token={{token}}",
+							"raw": "{{url}}/api/equipo/",
 							"host": [
 								"{{url}}"
 							],
@@ -79,7 +80,8 @@
 							"query": [
 								{
 									"key": "token",
-									"value": "{{token}}"
+									"value": "{{token}}",
+									"disabled": true
 								}
 							]
 						}
@@ -127,7 +129,8 @@
 							"value": "7e0e135f-0941-4273-9570-0506587d250f"
 						}
 					]
-				}
+				},
+				"description": "**Agregar equipo**  \nEste punto final le permite agregar un nuevo \"equipo\" realizando una solicitud HTTP POST a la URL especificada con la carga útil proporcionada.  \nCuerpo de solicitud  \nNombre (texto, opcional): El nombre del equipo.  \ndireccion (texto, opcional): La dirección del equipo.  \npaquetes (opcional): El número de paquetes asociados con el equipo.\n\n**Respuesta**  \nestado: El estado de la operación.  \noperacion: El tipo de operación realizada.  \nentidad: La entidad afectada por la operación.  \nmensaje_user: Mensajes amigables relacionados con la operación.  \nmensaje_server: Mensajes del servidor relacionados con la operación.  \njson: una matriz que contiene los detalles del equipo agregado, incluido el nombre, la dirección, la cantidad de paquetes y la clave pública."
 			},
 			"response": [
 				{
@@ -199,7 +202,7 @@
 					"query": [
 						{
 							"key": "pk",
-							"value": "21dfe124-3b4a-4349-ad83-9c643fa23c0a",
+							"value": "f9a8c71b-74d9-461f-8606-13d10241e0c8",
 							"disabled": true
 						},
 						{
@@ -213,7 +216,8 @@
 							"disabled": true
 						}
 					]
-				}
+				},
+				"description": "Este punto final realiza una solicitud HTTP GET para recuperar información sobre un elemento específico con la clave principal proporcionada (pk) en el parámetro URL. La respuesta estará en formato JSON e incluirá detalles como estado, operación, entidad, mensajes y una lista de elementos con sus respectivos atributos como nombre, dirección y paquetes. Además, cada elemento puede tener un objeto de prueba con detalles sobre su creación y métricas de rendimiento, como estado de respuesta, paquetes enviados, recibidos, perdidos, valores máximos, promedio y mínimos.\n\nNotese las herrramientas disponibles para hacer paginacion de los datos:\n\n- count: numero de elementos por pagina\n- pagina: numero de pagina.\n    \n\nPor favor notar que el formato de los datos del equipo cambia segun lo que se pida al Endpoint , si solicita los datos de un equipo en especifico este traera un campo \"test\" que contra los resultados de las pruebas junto con la fecha de creacion del registro en formato estandar utc-00:00, para el caso de pasar el pk del equipo el campo json llega de la forma :\n\n- total_count: total de elementos que coinciden con los registros de usuario\n    \n- data: un array con los datos de los equipos registrados, pero sin el campo \"test\" ya que no se considera sensato cargar estos datos para una funcion de listar  \n      \n    \n\n<img src=\"https://content.pstmn.io/78d13c73-c3ed-49c2-ab65-fd5c2899a03c/aW1hZ2UucG5n\" width=\"625\" height=\"236\">"
 			},
 			"response": [
 				{
@@ -228,7 +232,7 @@
 							}
 						],
 						"url": {
-							"raw": "{{url}}/api/equipo/?count=1&page=1",
+							"raw": "{{url}}/api/equipo/?pk=7e0e135f-0941-4273-9570-0506587d250f&count=1&page=1",
 							"host": [
 								"{{url}}"
 							],
@@ -240,8 +244,7 @@
 							"query": [
 								{
 									"key": "pk",
-									"value": "7e0e135f-0941-4273-9570-0506587d250f",
-									"disabled": true
+									"value": "7e0e135f-0941-4273-9570-0506587d250f"
 								},
 								{
 									"key": "count",
@@ -273,7 +276,7 @@
 					}
 				],
 				"url": {
-					"raw": "{{url}}/api/equipo/?pk=7e0e135f-0941-4273-9570-0506587d250f",
+					"raw": "{{url}}/api/equipo/?pk=9db8e15a-6779-4288-a016-a3ee4f241a27",
 					"host": [
 						"{{url}}"
 					],
@@ -285,46 +288,13 @@
 					"query": [
 						{
 							"key": "pk",
-							"value": "7e0e135f-0941-4273-9570-0506587d250f"
+							"value": "9db8e15a-6779-4288-a016-a3ee4f241a27"
 						}
 					]
-				}
+				},
+				"description": "Este punto final envía una solicitud HTTP DELETE para eliminar un elemento específico con la clave principal proporcionada (pk). La respuesta de la última ejecución tenía un código de estado de 200 y un tipo de contenido de aplicación/json. El cuerpo de la respuesta incluía un objeto JSON con claves de estado, operación, entidad, mensaje_user, mensaje_server y json. Los valores de estas claves estaban vacíos o una lista vacía."
 			},
 			"response": [
-				{
-					"name": "eliminar",
-					"originalRequest": {
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "{{token}}",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{url}}/api/equipo/?pk=7e0e135f-0941-4273-9570-0506587d250f",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"equipo",
-								""
-							],
-							"query": [
-								{
-									"key": "pk",
-									"value": "7e0e135f-0941-4273-9570-0506587d250f"
-								}
-							]
-						}
-					},
-					"_postman_previewlanguage": null,
-					"header": null,
-					"cookie": [],
-					"body": null
-				},
 				{
 					"name": "eliminar",
 					"originalRequest": {
@@ -374,7 +344,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"make\":true\r\n}",
+					"raw": "",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -382,7 +352,7 @@
 					}
 				},
 				"url": {
-					"raw": "{{url}}/api/equipo/make/test/?pk=dc116946-8fb8-4fbe-98b4-a5de786ce1f3",
+					"raw": "{{url}}/api/equipo/make/test/?pk=f9a8c71b-74d9-461f-8606-13d10241e0c8",
 					"host": [
 						"{{url}}"
 					],
@@ -396,10 +366,11 @@
 					"query": [
 						{
 							"key": "pk",
-							"value": "dc116946-8fb8-4fbe-98b4-a5de786ce1f3"
+							"value": "f9a8c71b-74d9-461f-8606-13d10241e0c8"
 						}
 					]
-				}
+				},
+				"description": "Esta solicitud HTTP POST se utiliza para realizar una prueba para un equipo específico. La solicitud debe enviarse a {{url}}/api/equipo/make/test/?pk=dc116946-8fb8-4fbe-98b4-a5de786ce1f3.\n\nTal como se indica en el mensaje de usuario el proceso se ejecuta en segundo plano y en caso de que el equipo no responda en los tiempos indicados por defaul \"process\" el proceso encargado muere."
 			},
 			"response": [
 				{
@@ -415,7 +386,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"make\":true\r\n}",
+							"raw": "",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -423,7 +394,7 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/api/equipo/make/test/?pk=dc116946-8fb8-4fbe-98b4-a5de786ce1f3",
+							"raw": "{{url}}/api/equipo/make/test/?pk=f9a8c71b-74d9-461f-8606-13d10241e0c8",
 							"host": [
 								"{{url}}"
 							],
@@ -437,7 +408,7 @@
 							"query": [
 								{
 									"key": "pk",
-									"value": "dc116946-8fb8-4fbe-98b4-a5de786ce1f3"
+									"value": "f9a8c71b-74d9-461f-8606-13d10241e0c8"
 								}
 							]
 						}

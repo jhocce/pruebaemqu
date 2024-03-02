@@ -1,0 +1,174 @@
+{
+	"info": {
+		"_postman_id": "20e46304-ab4f-4f23-950f-c1af924983cf",
+		"name": "Autenticación",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5697057"
+	},
+	"item": [
+		{
+			"name": "login",
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": [
+						{
+							"key": "isSecretBase64Encoded",
+							"value": false,
+							"type": "boolean"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "queryParam",
+							"type": "string"
+						},
+						{
+							"key": "algorithm",
+							"value": "HS256",
+							"type": "string"
+						},
+						{
+							"key": "payload",
+							"value": "{}",
+							"type": "string"
+						},
+						{
+							"key": "headerPrefix",
+							"value": "Bearer",
+							"type": "string"
+						},
+						{
+							"key": "queryParamKey",
+							"value": "token",
+							"type": "string"
+						},
+						{
+							"key": "header",
+							"value": "{}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"jhocce3022@gmail.com\",\r\n    \"password\":\"25733034\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/user/login/",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"user",
+						"login",
+						""
+					]
+				},
+				"description": "Inicio de sesión de usuario  \nEste punto final permite a los usuarios iniciar sesión proporcionando su correo electrónico y contraseña.  \nCuerpo de solicitud  \ncorreo electrónico (cadena): El correo electrónico del usuario.  \ncontraseña (cadena): La contraseña del usuario.\n\nRespuesta  \nestado (cadena): el estado de la operación.  \noperacion (cadena): La operación realizada.  \nentidad (cadena): La entidad involucrada.  \nmensaje_user (matriz de cadenas): mensajes específicos del usuario.  \nmensaje_server (matriz): Mensajes del servidor.  \njson (matriz): contiene el token para la autenticación.\n\nLa respuesta tendrá un código de estado de 200 al iniciar sesión correctamente."
+			},
+			"response": [
+				{
+					"name": "login",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"jhocce3022@gmail.com\",\r\n    \"password\":\"25733034\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/user/login/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"login",
+								""
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "registro_user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Nombres\":\"prueba\",\r\n    \"Apellidos\":\"aa\",\r\n    \"email\":\"jhocce3022@gmail.com\",\r\n    \"password\":25733034\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/user/registrar",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"user",
+						"registrar"
+					]
+				},
+				"description": "Esta solicitud HTTP POST se utiliza para registrar un usuario a través de la API. La solicitud debe enviarse a {{url}}/api/user/registrar con un cuerpo de solicitud sin formato que contenga el nombre (Nombres), apellido (Apellidos), correo electrónico y contraseña del usuario.  \nTras una ejecución exitosa, la API devuelve un estado 200 con una respuesta JSON que contiene el estado de la operación, la entidad involucrada, cualquier mensaje específico del usuario, mensajes específicos del servidor y el nombre, apellido y nombre de usuario del usuario.  \nPor ejemplo:\n\n``` json\n{\n  \"status\": \"\",\n  \"operacion\": \"\",\n  \"entidad\": \"\",\n  \"mensaje_user\": [],\n  \"mensaje_server\": [],\n  \"json\": [\n    {\n      \"Nombres\": \"\",\n      \"Apellidos\": \"\",\n      \"username\": \"\"\n    }\n  ]\n}\n\n ```\n\nPara este EP quedaria de parte del front hacer hash del password del user de momento a pesar de que se maneja jwt por falta de tiempo se llego aca.\n\n_**Notese que la respuesta esta estructurada de la forma antes mencionada en todos los endpoint**_"
+			},
+			"response": [
+				{
+					"name": "registro_user",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Nombres\":\"prueba\",\r\n    \"Apellidos\":\"aa\",\r\n    \"email\":\"jhocce3022@gmail.com\",\r\n    \"password\":25733034\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/user/registrar",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"registrar"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		}
+	]
+}

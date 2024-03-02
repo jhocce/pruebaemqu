@@ -31,4 +31,16 @@ class EquipoSerializer(serializers.ModelSerializer):
 	def __str__(self):
 
 		return self.EquipoSerializer
+
+class EquipoSerializer2(serializers.ModelSerializer):
+
+
+	class Meta:
+
+		model = Equipo
+		fields = ("pk_publica","Nombre", "direccion", "paquetes") 
+
+	def __str__(self):
+
+		return self.EquipoSerializer2
 	

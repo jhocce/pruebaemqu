@@ -10,7 +10,7 @@ from rest_framework.response import Response
 from apps.system.monitor import MonitorMixin
 from rest_framework.generics import CreateAPIView, ListAPIView, RetrieveAPIView, UpdateAPIView, DestroyAPIView
 
-from .serializers import EquipoSerializer, TestSerializer
+from .serializers import EquipoSerializer, TestSerializer, EquipoSerializer2
 from .models import Equipo, Test
 from apps.system.action import service
 
@@ -21,6 +21,7 @@ class EquipoAPI(MonitorMixin,CreateAPIView, ListAPIView,
 	RetrieveAPIView, UpdateAPIView, DestroyAPIView, APIView):
 	
 	serializer_class = EquipoSerializer
+	serializer_class2 = EquipoSerializer2
 	model = Equipo
 	
 	def update(self, request, *arg, **kwargs):
@@ -90,7 +91,7 @@ class EquipoAPI(MonitorMixin,CreateAPIView, ListAPIView,
 				quey = self.get_queryset()
 				if quey is not None:
 					total_count = quey.object_list.count()
-					f = self.serializer_class(quey, many=True)
+					f = self.serializer_class2(quey, many=True)
 					
 					
 					self.JsonAdd(json={
@@ -164,7 +165,8 @@ class TesttestAPI(MonitorMixin, APIView):
 			try:
 				equipo = Equipo.objects.get(pk_publica=pk)
 			except Exception as e:
-				print(e)
+				self.MensajeListAdd(mensaje_user = 'No hay registro asociado a la pk enviada')
+				return Response(self.salida(), status=200)
 			
 			
 			b = service(equipo=equipo)
@@ -175,7 +177,7 @@ class TesttestAPI(MonitorMixin, APIView):
 			self.MensajeListAdd(mensaje_user = 'Ejecutando en segundo plano')
 			return Response(self.salida(), status=200)
 		except Exception as e:
-			print("dasd")
+			
 			self.MensajeListAdd(mensaje_server  = str(e))
 			return Response(self.salida(), status=500)
     
