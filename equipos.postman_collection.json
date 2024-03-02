@@ -1,0 +1,453 @@
+{
+	"info": {
+		"_postman_id": "18eb216c-fbf1-45ee-8ab6-faf59c3b7cdb",
+		"name": "equipos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5697057"
+	},
+	"item": [
+		{
+			"name": "agregar",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Nombre\":\"jhocce\",\r\n    \"direccion\":\"www.google.com\",\r\n    \"paquetes\": \"30\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/equipo/",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"equipo",
+						""
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "agregar",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Nombre\":\"prueba1\",\r\n    \"direccion\":\"www.google.com\",\r\n    \"paquetes\": \"5\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/equipo/?token={{token}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"equipo",
+								""
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "{{token}}"
+								}
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "actualizar",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Nombre\":\"prueba3\",\r\n    \"direccion\":\"www.google.com\",\r\n    \"paquetes\": \"5\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/equipo/?pk=7e0e135f-0941-4273-9570-0506587d250f",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"equipo",
+						""
+					],
+					"query": [
+						{
+							"key": "pk",
+							"value": "7e0e135f-0941-4273-9570-0506587d250f"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "actualizar",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Nombre\":\"prueba3\",\r\n    \"direccion\":\"www.google.com\",\r\n    \"paquetes\": \"5\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/equipo/?pk=7e0e135f-0941-4273-9570-0506587d250f",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"equipo",
+								""
+							],
+							"query": [
+								{
+									"key": "pk",
+									"value": "7e0e135f-0941-4273-9570-0506587d250f"
+								}
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "obtener",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/api/equipo/",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"equipo",
+						""
+					],
+					"query": [
+						{
+							"key": "pk",
+							"value": "21dfe124-3b4a-4349-ad83-9c643fa23c0a",
+							"disabled": true
+						},
+						{
+							"key": "count",
+							"value": "100",
+							"disabled": true
+						},
+						{
+							"key": "page",
+							"value": "1",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "obtener",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/equipo/?count=1&page=1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"equipo",
+								""
+							],
+							"query": [
+								{
+									"key": "pk",
+									"value": "7e0e135f-0941-4273-9570-0506587d250f",
+									"disabled": true
+								},
+								{
+									"key": "count",
+									"value": "1"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "eliminar",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/api/equipo/?pk=7e0e135f-0941-4273-9570-0506587d250f",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"equipo",
+						""
+					],
+					"query": [
+						{
+							"key": "pk",
+							"value": "7e0e135f-0941-4273-9570-0506587d250f"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "eliminar",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/equipo/?pk=7e0e135f-0941-4273-9570-0506587d250f",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"equipo",
+								""
+							],
+							"query": [
+								{
+									"key": "pk",
+									"value": "7e0e135f-0941-4273-9570-0506587d250f"
+								}
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				},
+				{
+					"name": "eliminar",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/equipo/?pk=7e0e135f-0941-4273-9570-0506587d250f",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"equipo",
+								""
+							],
+							"query": [
+								{
+									"key": "pk",
+									"value": "7e0e135f-0941-4273-9570-0506587d250f"
+								}
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "hacertest",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"make\":true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/equipo/make/test/?pk=dc116946-8fb8-4fbe-98b4-a5de786ce1f3",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"equipo",
+						"make",
+						"test",
+						""
+					],
+					"query": [
+						{
+							"key": "pk",
+							"value": "dc116946-8fb8-4fbe-98b4-a5de786ce1f3"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "hacertest",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"make\":true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/equipo/make/test/?pk=dc116946-8fb8-4fbe-98b4-a5de786ce1f3",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"equipo",
+								"make",
+								"test",
+								""
+							],
+							"query": [
+								{
+									"key": "pk",
+									"value": "dc116946-8fb8-4fbe-98b4-a5de786ce1f3"
+								}
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		}
+	]
+}

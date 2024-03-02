@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+</head>
+<body>
+    <form class="Login01" action="/user/login/" method="post">
+        {% csrf_token %}
+        <div class="Group1" >
+            <div class="IniciarSesiN" >Iniciar Sesión </div>
+            <div class="PoliticaPrivacidad">Al usar nuestros servicios estas aceptando nuestras</span><span style="color: #1E89ED; font-size: 14px; font-family: Inika; font-weight: 400; line-height: 21px; word-wrap: break-word"> </span><span style="color: #4B5BA2; font-size: 14px; font-family: Inika; font-weight: 400; line-height: 21px; word-wrap: break-word" class="Condiciones">Condiciones</span><span style="color: black; font-size: 14px; font-family: Inika; font-weight: 400; line-height: 21px; word-wrap: break-word" class="muestra"> y nuestra </span><span style="color: #4B5BA2; font-size: 14px; font-family: Inika; font-weight: 400; line-height: 21px; word-wrap: break-word" class="Privacidad">Declaración de Privacidad</span></div>
+        </div>
+        <div>
+            <img class="Image4" style="width: 100%; height: 363px; left: -32px; top: 225px;" src="{% static 'asset/image 4.svg' %} " />
+
+        </div>
+            
+        <div class="BotonInicioSesion" style="margin: 20px;">
+
+            <input type="text" class="user" name="username" placeholder="Ingresa tu usuario">
+            <img class="icono" src="{% static 'asset/mdi_account.svg'%}" alt="">
+        </div>
+        <div class="BotonInicioSesion2" style="margin: 20px;">
+          
+            <input type="password" name="password" class="pass" placeholder="Ingresa tu contraseña">
+            <img class="icono" src="{% static 'asset/eye.svg'%}" alt="">
+            
+        </div>
+        <div>
+           
+            {% if form.errors %}
+            {{ form.errors }}
+            {% endif %}
+        </div>
+
+        <div style="margin: 20px;">
+             <button class="enviar" >Enviar</button>
+        </div>
+        <div class="SinoTeHazRegistradoPuedesHacerloAqu"><span style="color: black; font-size: 14px; font-family: Inika; font-weight: 400; line-height: 21px; word-wrap: break-word">Sino te haz registrado puedes<br/>hacerlo </span><span style="color: #4B5BA2; font-size: 14px; font-family: Inika; font-weight: 400; line-height: 21px; word-wrap: break-word"><a href="">Aquí</a></span></div>
+    </form>
+</body>
+</html>

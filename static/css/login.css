@@ -1,0 +1,111 @@
+.Login01{
+    width: 100%; 
+    height: 100%; 
+    position: relative; 
+    background: white;
+    display: flex;
+    /* justify-content: center; */
+    flex-flow: column;
+    align-items: center
+    
+}
+
+.IniciarSesiN{
+color: black;
+ font-size: 32px;
+ font-family: Inika;
+ font-weight: 400;
+ line-height: 48px;
+ word-wrap: break-word;
+ width: 303px; 
+ height: 57px; 
+ left: 2px; 
+ top: 0px; 
+  text-align: center; 
+  color: black; font-size: 32px; 
+
+}
+.PoliticaPrivacidad{
+    color: black;
+ font-size: 14px;
+ font-family: Inika;
+ font-weight: 400;
+ line-height: 21px;
+ word-wrap: break-word;
+ text-align: center;
+ width: 296px;
+  height: 82px; 
+  left: 0px; 
+  top: 76px;
+ 
+
+}
+.Condiciones{
+color: #4B5BA2;
+ font-size: 14px;
+ font-family: Inika;
+ font-weight: 400;
+ line-height: 21px;
+ word-wrap: break-word
+}
+
+.muestra{
+    color: black;
+    font-size: 14px;
+    font-family: Inika;
+    font-weight: 400;
+    line-height: 21px;
+    word-wrap: break-word
+}
+.Privacidad{
+    color: #4B5BA2;
+    font-size: 14px;
+    font-family: Inika;
+    font-weight: 400;
+    line-height: 21px;
+    word-wrap: break-word
+}
+
+.enviar{
+    background-color: #4B5BA2;
+    width: 300px;
+    height: 35px;
+    left: 44px;
+    top: 701px;
+
+    border: 0px rgba(75, 91, 162, 0.55) solid;
+    border-radius: 19px;
+    color: white;
+    cursor: pointer;
+}
+
+.Login01 > div{
+    width: 345px;
+  
+    text-align: center;
+    position: relative;
+}
+
+.user, .pass{
+    width: 345px; 
+    height: 35px; 
+    left: 0px; 
+    top: 0px; 
+    position: relative;
+    background: white; 
+    border-radius: 20px; 
+    border: 1px rgba(75, 91, 162, 0.55) solid;
+    text-align: center; color: #4B5BA2; font-size: 16px; font-family: Hind Siliguri; font-weight: 400; line-height: 24px; word-wrap: break-word;
+}
+
+div > img.icono{
+    width: 30px;
+    height: 30px;
+    right: 14px;
+    top: 4px;
+    position: absolute;
+}
+
+.Group1 > div{
+    width: 100%;
+}
